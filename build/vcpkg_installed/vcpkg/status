@@ -1,0 +1,103 @@
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 4eb4762b85a5e95758c24ec2e0135ed1d9828c7e3e97179572f1217bb9887cee
+Status: install ok installed
+
+Package: zlib
+Version: 1.3.1
+Depends: vcpkg-cmake:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 1edbb0293e2d18bfa05e5f3b9acbad460866f851b89503a22ef71a32497a6742
+Description: A compression library
+Status: install ok installed
+
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: f197bd5090eb544e91f6178556400c847069e457344cddd55f9e6bb18925f840
+Status: install ok installed
+
+Package: utf8proc
+Version: 2.10.0
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 7fbadcd1344cb435ccd06e2611aaaa9d0f968665702640a3649542f745a06b6b
+Description: Clean C library for processing UTF-8 Unicode data.
+Status: install ok installed
+
+Package: sdl2
+Version: 2.32.2
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: f9935f70daeb4032db2bc3b1d02043185f807187dfd376c1bb209195615846b6
+Description: Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D.
+Status: install ok installed
+
+Package: lodepng
+Version: 2021-12-04
+Port-Version: 1
+Depends: vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 406af61e46722f4643884ecbae0b79fca1cdf8cb6724f0ae31de53ee07663b60
+Description: PNG encoder and decoder in C++
+Status: install ok installed
+
+Package: stb
+Version: 2024-07-29
+Port-Version: 1
+Architecture: x86-windows
+Multi-Arch: same
+Abi: 93d7dbf34767728ae1b7f5af84a54b45fc80abf2b449658eec5e1f4687e691c7
+Description: public domain header-only libraries
+Status: install ok installed
+
+Package: libtcod
+Version: 1.24.0
+Depends: stb, vcpkg-cmake:x64-windows, vcpkg-cmake-config:x64-windows
+Architecture: x86-windows
+Multi-Arch: same
+Maintainer: Kyle Benesch <4b796c65+github@gmail.com>
+Abi: d18e520774ca049eb2e053f537c853e2a3b2dad4130a22db22f812fd566b6cd6
+Description: Common algorithms and tools for roguelikes.
+Default-Features: png, sdl, unicode, zlib
+Status: install ok installed
+
+Package: libtcod
+Feature: png
+Depends: lodepng
+Architecture: x86-windows
+Multi-Arch: same
+Description: Support for reading and writing PNG files.  Required to save screenshots and to load tilesets from files.
+Status: install ok installed
+
+Package: libtcod
+Feature: sdl
+Depends: sdl2
+Architecture: x86-windows
+Multi-Arch: same
+Description: Support for SDL2 windows and events with the libtcod context.
+Status: install ok installed
+
+Package: libtcod
+Feature: unicode
+Depends: utf8proc
+Architecture: x86-windows
+Multi-Arch: same
+Description: Support for non-ASCII characters.  Required for text printing functions
+Status: install ok installed
+
+Package: libtcod
+Feature: zlib
+Depends: zlib
+Architecture: x86-windows
+Multi-Arch: same
+Description: Support for REXPaint files and TCODZip archives.
+Status: install ok installed
+
