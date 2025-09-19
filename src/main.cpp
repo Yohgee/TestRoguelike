@@ -1,8 +1,6 @@
 #include <SDL.h>
 #include <libtcod.hpp>
-#include "Engine.hpp"
-#include "Actor.hpp"
-#include "Map.hpp"
+#include "main.hpp"
 
 auto get_data_dir() -> std::filesystem::path {
   static auto root_directory = std::filesystem::path{"."};  // Begin at the working directory.
@@ -16,10 +14,10 @@ auto get_data_dir() -> std::filesystem::path {
   return root_directory / "data";
 };
 
-Engine engine;
+Engine engine(90, 42, 0, 0);
 
 int main(int argc, char* argv[]) {
-  auto console = tcod::Console{80, 64};  // Main console.
+  auto console = tcod::Console{engine.mapWidth + engine.guiBarWidth + 40, engine.mapHeight + Gui::PANEL_HEIGHT};  // Main console.
 
   // Configure the context.
   auto params = TCOD_ContextParams{};
@@ -55,11 +53,12 @@ int main(int argc, char* argv[]) {
     SDL_WaitEvent(nullptr);  // Optional, sleep until events are available.
     while (SDL_PollEvent(&event)) {
       context.convert_event_coordinates(event);  // Optional, converts pixel coordinates into tile coordinates.
-      SDL_PushEvent(&event);
+      
       switch (event.type) {
         case SDL_QUIT:
           return 0;  // Exit.
       }
+      SDL_PushEvent(&event);
     }
   }
 }

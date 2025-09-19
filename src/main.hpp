@@ -1,0 +1,10 @@
+#include <libtcod.hpp>
+class Actor;
+#include "Engine.hpp"
+#include "Actor.hpp"
+#include "Map.hpp"
+#include "Destructible.hpp"
+#include "Ai.hpp"
+#include "Attacker.hpp"
+#include "Devourable.hpp"
+#include "Gui.hpp"
